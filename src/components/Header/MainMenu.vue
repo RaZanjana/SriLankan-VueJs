@@ -14,47 +14,47 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Plan & Book</a
-              >
+            <li class="nav-item text-center">
+              <a class="nav-link" href="#">Plan & Book</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-center">
               <a class="nav-link" href="#">Travel information</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-center">
               <a class="nav-link" href="#">Experience</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-center">
               <a class="nav-link" href="#">Flysmiles</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <div class="container-fluid">
+          <form class="d-flex justify-content-center">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white w-100">
+              <div class="container d-flex justify-content-center">
                 <button
-                  class="navbar-toggler"
+                  class="navbar-toggler mb-1"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#navbarTogglerDemo"
-                  aria-controls="navbarTogglerDemo"
+                  data-bs-target="#rightMenu"
+                  aria-controls="rightMenu"
                   aria-expanded="false"
                   aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                  <i class="fas fa-angle-down"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                <div class="collapse navbar-collapse" id="rightMenu">
+                  <ul class="navbar-nav me-auto mb-lg-0 d-flex justify-content-evenly">
+                    <li class="nav-item text-center">
                       <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">EN:SI</a>
+                    <li class="nav-item text-center">
+                      <a class="nav-link" href="#">
+                        <LangIco />
+                      </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item text-center">
                       <a class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
                     </li>
                   </ul>
@@ -69,8 +69,12 @@
 </template>
 
 <script>
+import LangIco from '../Header/LangIco.vue'
 export default {
   name: "NavBar",
+  components: {
+    LangIco
+  }
 };
 </script>
 
@@ -80,10 +84,41 @@ export default {
 }
 .nav-link {
   color: #0088dd !important;
+  position: relative;
 }
 .nav-link:hover {
   color: #153d8a !important;
   transition: 0.3s;
   cursor: pointer;
 }
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.05rem #0088dd;
+}
+#rightMenu .navbar-nav{
+  flex-direction: row !important;
+}
+
+.nav-link:after {
+        color: #0088dd !important;
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #0088dd;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+    .nav-link:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .btn-icon{
+          background-color: rgba(#0088dd, .2);
+      }
+      .navbar-toggler:hover{
+        border-color: #0088dd;
+      }
 </style>
