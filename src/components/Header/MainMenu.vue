@@ -17,7 +17,7 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll">
             <li class="nav-item text-center">
               <a class="nav-link" href="#">Plan & Book</a>
             </li>
@@ -47,7 +47,14 @@
                 <div class="collapse navbar-collapse" id="rightMenu">
                   <ul class="navbar-nav me-auto mb-lg-0 d-flex justify-content-evenly">
                     <li class="nav-item text-center">
-                      <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                      <a class="nav-link" href="#">
+                        <div class="search-box">
+                          <button class="btn-search">
+                            <i class="fas fa-search"></i>
+                          </button>
+                          <input type="text" class="input-search" placeholder="Type to Search...">
+                        </div>                        
+                        </a>
                     </li>
                     <li class="nav-item text-center">
                       <a class="nav-link" href="#">
@@ -97,7 +104,9 @@ export default {
 #rightMenu .navbar-nav{
   flex-direction: row !important;
 }
-
+.navbar-nav-scroll{
+  --bs-scroll-height: 100px;
+}
 .nav-link:after {
         color: #0088dd !important;
         content: '';
@@ -121,4 +130,63 @@ export default {
       .navbar-toggler:hover{
         border-color: #0088dd;
       }
+
+      /* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 136, 221, .2);
+}
+
+.search-box{
+  position: relative;
+}
+.input-search{
+  height: 30px;
+  width: 30px;
+  border-style: none;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  padding-right: 30px;
+  color:#0088dd;
+}
+.input-search::placeholder{
+  color:#0088dd;
+}
+.btn-search{
+  width: 30px;
+  height: 30px;
+  border-style: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#0088dd ;
+  background-color:transparent;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input-search{
+  width: 200px;
+  border-radius: 0px;
+  background-color: transparent;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 200px;
+  border-radius: 0px;
+  background-color: transparent;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
 </style>
