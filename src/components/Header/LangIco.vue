@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex align-items-center">
       <span>EN</span>&nbsp;<country-flag country="lk" size="small" />
   </div>
 </template>
