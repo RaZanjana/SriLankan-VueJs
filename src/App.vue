@@ -28,4 +28,21 @@ export default {
   color: #2c3e50;
   margin: 0;
 }
+      /* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    overflow: scroll !important;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 136, 221, .3);
+}
 </style>

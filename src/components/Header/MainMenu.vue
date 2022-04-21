@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm main-nav">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="../../assets/icons/logo.png" class="logo" alt="" />
@@ -18,27 +18,27 @@
           <i v-if="showCloseIco" class="fas fa-times"></i>
         </button>
         <div class="collapse navbar-collapse" id="leftMenu">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item text-center dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="planAndBookDrp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan & Book</a>
-              <div class="dropdown-menu" aria-labelledby="planAndBookDrp">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          <a class="nav-link main-nav-link dropdown-toggle" href="#" id="pnb" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Plan & Book
+          </a>
+          <div class="dropdown-menu p-0 border border-0" aria-labelledby="pnb">
+            <SubMenu />
+          </div>
+        </li>
+            <li class="nav-item text-center">
+              <a class="nav-link main-nav-link" href="#">Travel information</a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link" href="#">Travel information</a>
+              <a class="nav-link main-nav-link" href="#">Experience</a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link" href="#">Experience</a>
-            </li>
-            <li class="nav-item text-center">
-              <a class="nav-link" href="#">Flysmiles</a>
+              <a class="nav-link main-nav-link" href="#">Flysmiles</a>
             </li>
           </ul>
           <form class="d-flex justify-content-center">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white w-100">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white w-100 shadow-0">
               <div class="container d-flex justify-content-center">
                 <button v-on:click="displaySubMenu"
                   class="navbar-toggler mb-1"
@@ -84,10 +84,12 @@
 
 <script>
 import LangIco from '../Header/LangIco.vue'
+import SubMenu from '../Header/MenuList/SubMenu.vue'
 export default {
   name: "NavBar",
   components: {
-    LangIco
+    LangIco,
+    SubMenu
   },
   data(){
     return{
@@ -113,7 +115,7 @@ export default {
 <style lang="scss" scoped>
 $primary-color: #0088dd;
 $primary-hover-color: #153d8a;
-
+.main-nav{
 .logo {
   width: 280px;
 }
@@ -122,11 +124,6 @@ $primary-hover-color: #153d8a;
 }
 #leftMenu .nav-link{
   position: relative;
-}
-.nav-link:hover {
-  color: $primary-hover-color !important;
-  transition: 0.3s;
-  cursor: pointer;
 }
 .navbar-toggler:focus {
     box-shadow: none !important;
@@ -137,7 +134,7 @@ $primary-hover-color: #153d8a;
 .navbar-nav-scroll{
   --bs-scroll-height: 100px;
 }
-#leftMenu .nav-link:after {
+.main-nav-link:after {
         color: $primary-color !important;
         content: '';
         position: absolute;
@@ -150,7 +147,7 @@ $primary-hover-color: #153d8a;
         transform-origin: bottom right;
         transition: transform 0.25s ease-out;
     }
-    #leftMenu .nav-link:hover:after {
+    .main-nav-link:hover:after {
         transform: scaleX(1);
         transform-origin: bottom left;
       }
@@ -160,25 +157,17 @@ $primary-hover-color: #153d8a;
       #leftMenu .navbar-toggler:hover{
         border-color: $primary-color;
       }
-
-      /* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 10px;
-    overflow: scroll !important;
+      .navbar-toggler{
+  outline: none !important;
+  border: none !important;
+  color: $primary-color !important
 }
- 
-::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+.dropdown-menu{
+  min-width:max-content;
+  .card{
+    border-top: 3px solid $primary-color !important;
+  }
 }
-
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(0, 136, 221, .3);
-}
-
 /* Search Bar Style */
 .search-box{
   position: relative;
@@ -223,11 +212,8 @@ $primary-hover-color: #153d8a;
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   padding-left: 8px;
 }
-.navbar-toggler{
-  outline: none !important;
-  border: none !important;
-  color: $primary-color !important
 }
+
 
 @media (max-width: 1199px) {
     .logo{
