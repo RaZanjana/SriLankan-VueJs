@@ -110,18 +110,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$primary-color: #0088dd;
+$primary-hover-color: #153d8a;
+
 .logo {
   width: 280px;
 }
 .nav-link {
-  color: #0088dd !important;  
+  color: $primary-color !important;  
 }
 #leftMenu .nav-link{
   position: relative;
 }
 .nav-link:hover {
-  color: #153d8a !important;
+  color: $primary-hover-color !important;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -135,7 +138,7 @@ export default {
   --bs-scroll-height: 100px;
 }
 #leftMenu .nav-link:after {
-        color: #0088dd !important;
+        color: $primary-color !important;
         content: '';
         position: absolute;
         width: 100%;
@@ -143,7 +146,7 @@ export default {
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: #0088dd;
+        background-color: $primary-color;
         transform-origin: bottom right;
         transition: transform 0.25s ease-out;
     }
@@ -152,10 +155,10 @@ export default {
         transform-origin: bottom left;
       }
       #leftMenu .btn-icon{
-          background-color: rgba(#0088dd, .2);
+          background-color: rgba($primary-color, .2);
       }
       #leftMenu .navbar-toggler:hover{
-        border-color: #0088dd;
+        border-color: $primary-color;
       }
 
       /* Scrollbar Styling */
@@ -203,7 +206,7 @@ export default {
   border-radius: 50%;
   position: absolute;
   right: 0px;
-  color:#0088dd ;
+  color:$primary-color ;
   background-color:transparent;
   pointer-events: painted;  
 }
@@ -223,7 +226,7 @@ export default {
 .navbar-toggler{
   outline: none !important;
   border: none !important;
-  color: #0088dd !important
+  color: $primary-color !important
 }
 
 @media (max-width: 1199px) {
