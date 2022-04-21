@@ -19,8 +19,13 @@
         </button>
         <div class="collapse navbar-collapse" id="leftMenu">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll">
-            <li class="nav-item text-center">
-              <a class="nav-link" href="#">Plan & Book</a>
+            <li class="nav-item text-center dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="planAndBookDrp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan & Book</a>
+              <div class="dropdown-menu" aria-labelledby="planAndBookDrp">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
             </li>
             <li class="nav-item text-center">
               <a class="nav-link" href="#">Travel information</a>

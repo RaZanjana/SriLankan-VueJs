@@ -2,17 +2,20 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <MainMenu />
+  <!-- <PreLoader /> -->
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import MainMenu from './components/Header/MainMenu.vue'
+ import MainMenu from './components/Header/MainMenu.vue'
+// import PreLoader from './components/PreLoader/PreLoader.vue'
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
-    MainMenu
+     MainMenu
+    // PreLoader
   }
 }
 </script>
